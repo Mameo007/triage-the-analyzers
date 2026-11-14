@@ -13,5 +13,9 @@
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
     <description>PMD quickstart, with Project Pulse's decisions.</description>
     <rule ref="rulesets/java/quickstart.xml">
+        <!-- D4: GuardLogStatement off. Project Pulse logs through SLF4J with {} placeholders, so messages
+             are only formatted when the level is enabled; the flagged calls pass cheap accessors
+             (getEmail(), size(), getName()), so isXxxEnabled() guards add noise and no speed. -->
+        <exclude name="GuardLogStatement"/>
     </rule>
 </ruleset>
