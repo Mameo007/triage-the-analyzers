@@ -118,7 +118,7 @@ public class RequirementArtifact {
     public void removeCommentThread(CommentThread thread) {
         if (thread == null) return;
         this.commentThreads.remove(thread);
-        if (thread.getArtifact() == this) {
+        if (thread.getArtifact() == this) { // NOPMD - identity intended: only clear the back-reference if it points to this instance; RequirementArtifact does not override equals()
             thread.setArtifact(null);
         }
     }

@@ -66,7 +66,7 @@ public class RequirementDocument {
         if (section == null) return;
 
         this.sections.remove(section);
-        if (section.getDocument() == this) {
+        if (section.getDocument() == this) { // NOPMD - identity intended: only clear the back-reference if it points to this instance; RequirementDocument does not override equals()
             section.setDocument(null);
         }
     }
@@ -82,7 +82,7 @@ public class RequirementDocument {
         if (thread == null) return;
 
         this.commentThreads.remove(thread);
-        if (thread.getDocument() == this) {
+        if (thread.getDocument() == this) { // NOPMD - identity intended: only clear the back-reference if it points to this instance; RequirementDocument does not override equals()
             thread.setDocument(null);
         }
     }

@@ -106,7 +106,7 @@ public class DocumentSection {
     public void removeCommentThread(CommentThread thread) {
         if (thread == null) return;
         this.commentThreads.remove(thread);
-        if (thread.getDocumentSection() == this) {
+        if (thread.getDocumentSection() == this) { // NOPMD - identity intended: only clear the back-reference if it points to this instance; DocumentSection does not override equals()
             thread.setDocumentSection(null);
         }
     }
