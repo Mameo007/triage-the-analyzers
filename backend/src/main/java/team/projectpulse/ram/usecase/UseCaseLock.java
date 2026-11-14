@@ -36,7 +36,7 @@ public class UseCaseLock {
     }
 
     public boolean isLocked(Instant now) {
-        if (lockedAt == null) return false;
+        if (lockedAt == null) { return false; }
         if (expiresAt == null) return true; // NOPMD - not worth it: three explicit returns mirror the three lock states (unlocked / no expiry / until expiresAt); equivalent to the merged form
         return expiresAt.isAfter(now);
     }
