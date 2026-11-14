@@ -7,4 +7,13 @@
 
      Unlike the baseline, this file may grow, but every entry is a reviewed decision. -->
 <FindBugsFilter>
+  <!-- D1: EI_EXPOSE_REP/EI_EXPOSE_REP2 off. The findings are JPA entity getters/setters (Hibernate dirty
+       checking, lazy proxies and bidirectional associations require live references; defensive copies
+       would break persistence) and constructor-injected Spring beans (shared singletons by design). -->
+  <Match>
+    <Or>
+      <Bug pattern="EI_EXPOSE_REP"/>
+      <Bug pattern="EI_EXPOSE_REP2"/>
+    </Or>
+  </Match>
 </FindBugsFilter>

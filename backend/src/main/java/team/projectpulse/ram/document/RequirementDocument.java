@@ -56,33 +56,33 @@ public class RequirementDocument {
     }
 
     public void addSection(DocumentSection section) {
-        if (section == null) return;
+        if (section == null) { return; }
 
         this.sections.add(section);
         section.setDocument(this);
     }
 
     public void removeSection(DocumentSection section) {
-        if (section == null) return;
+        if (section == null) { return; }
 
         this.sections.remove(section);
-        if (section.getDocument() == this) {
+        if (section.getDocument() == this) { // NOPMD - identity intended: only clear the back-reference if it points to this instance; RequirementDocument does not override equals()
             section.setDocument(null);
         }
     }
 
     public void addCommentThread(CommentThread thread) {
-        if (thread == null) return;
+        if (thread == null) { return; }
 
         this.commentThreads.add(thread);
         thread.setDocument(this);
     }
 
     public void removeCommentThread(CommentThread thread) {
-        if (thread == null) return;
+        if (thread == null) { return; }
 
         this.commentThreads.remove(thread);
-        if (thread.getDocument() == this) {
+        if (thread.getDocument() == this) { // NOPMD - identity intended: only clear the back-reference if it points to this instance; RequirementDocument does not override equals()
             thread.setDocument(null);
         }
     }
